@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLCCHCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TTHC">
+          <Key>
+            <PropertyRef Name="IdTTHC" />
+          </Key>
+          <Property Name="IdTTHC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameTTHC" Type="nvarchar(max)" />
+          <Property Name="CQTThucHien" Type="nvarchar(max)" />
+          <Property Name="VanBanQuyDinh" Type="nvarchar(max)" />
+          <Property Name="MucDoDVCTT" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" />
+          <Property Name="IdResult" Type="int" />
+          <Property Name="LevelTTHC" Type="int" />
+          <Property Name="Method" Type="int" />
+          <Property Name="ValueMethod" Type="int" />
+          <Property Name="QuyetDinhCongBo" Type="nvarchar(max)" />
+          <Property Name="TichHopCongDVCQG" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="sp_GetAllTTHC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="QLCCHCModelStoreContainer">
+          <EntitySet Name="TTHC" EntityType="Self.TTHC" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLCCHCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TTHC">
+          <Key>
+            <PropertyRef Name="IdTTHC" />
+          </Key>
+          <Property Name="IdTTHC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameTTHC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CQTThucHien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VanBanQuyDinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MucDoDVCTT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="IdResult" Type="Int32" />
+          <Property Name="LevelTTHC" Type="Int32" />
+          <Property Name="Method" Type="Int32" />
+          <Property Name="ValueMethod" Type="Int32" />
+          <Property Name="QuyetDinhCongBo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TichHopCongDVCQG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="QLCCHCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TTHC" EntityType="Self.TTHC" />
+          <FunctionImport Name="sp_GetAllTTHC" ReturnType="Collection(QLCCHCModel.sp_GetAllTTHC_Result)" />
+        </EntityContainer>
+        <ComplexType Name="sp_GetAllTTHC_Result">
+          <Property Type="String" Name="IdTTHC" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NameTTHC" Nullable="true" />
+          <Property Type="String" Name="CQTThucHien" Nullable="true" />
+          <Property Type="String" Name="VanBanQuyDinh" Nullable="true" />
+          <Property Type="String" Name="MucDoDVCTT" Nullable="true" />
+          <Property Type="Int32" Name="Type" Nullable="true" />
+          <Property Type="Int32" Name="IdResult" Nullable="true" />
+          <Property Type="Int32" Name="LevelTTHC" Nullable="true" />
+          <Property Type="Int32" Name="Method" Nullable="true" />
+          <Property Type="Int32" Name="ValueMethod" Nullable="true" />
+          <Property Type="String" Name="QuyetDinhCongBo" Nullable="true" />
+          <Property Type="String" Name="TichHopCongDVCQG" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLCCHCModelStoreContainer" CdmEntityContainer="QLCCHCEntities">
+          <EntitySetMapping Name="TTHC">
+            <EntityTypeMapping TypeName="QLCCHCModel.TTHC">
+              <MappingFragment StoreEntitySet="TTHC">
+                <ScalarProperty Name="IdTTHC" ColumnName="IdTTHC" />
+                <ScalarProperty Name="NameTTHC" ColumnName="NameTTHC" />
+                <ScalarProperty Name="CQTThucHien" ColumnName="CQTThucHien" />
+                <ScalarProperty Name="VanBanQuyDinh" ColumnName="VanBanQuyDinh" />
+                <ScalarProperty Name="MucDoDVCTT" ColumnName="MucDoDVCTT" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IdResult" ColumnName="IdResult" />
+                <ScalarProperty Name="LevelTTHC" ColumnName="LevelTTHC" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="ValueMethod" ColumnName="ValueMethod" />
+                <ScalarProperty Name="QuyetDinhCongBo" ColumnName="QuyetDinhCongBo" />
+                <ScalarProperty Name="TichHopCongDVCQG" ColumnName="TichHopCongDVCQG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetAllTTHC" FunctionName="QLCCHCModel.Store.sp_GetAllTTHC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLCCHCModel.sp_GetAllTTHC_Result">
+                <ScalarProperty Name="IdTTHC" ColumnName="IdTTHC" />
+                <ScalarProperty Name="NameTTHC" ColumnName="NameTTHC" />
+                <ScalarProperty Name="CQTThucHien" ColumnName="CQTThucHien" />
+                <ScalarProperty Name="VanBanQuyDinh" ColumnName="VanBanQuyDinh" />
+                <ScalarProperty Name="MucDoDVCTT" ColumnName="MucDoDVCTT" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IdResult" ColumnName="IdResult" />
+                <ScalarProperty Name="LevelTTHC" ColumnName="LevelTTHC" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="ValueMethod" ColumnName="ValueMethod" />
+                <ScalarProperty Name="QuyetDinhCongBo" ColumnName="QuyetDinhCongBo" />
+                <ScalarProperty Name="TichHopCongDVCQG" ColumnName="TichHopCongDVCQG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

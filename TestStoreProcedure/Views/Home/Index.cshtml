@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<TestStoreProcedure.Models.TTHCModel>
+<button id="btnShowTTHC" class="btn btn-primary">Hiển thị thủ tục hành chính</button>
+
+<div id="tthcData" style="margin-top: 20px;">
+    <!-- Dữ liệu TTHC sẽ được hiển thị ở đây -->
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã thủ tục hành chính</th>
+            <th>Tên thủ tục hành chính</th>
+            <th>Cơ quan thuế thực hiện</th>
+            <th>Văn bản quy định</th>
+            <th>Quyết định công bố</th>
+            <th>Mức độ dịch vụ công trực tuyến</th>
+            <th>Tích hợp cổng dịch vụ công quốc gia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaTTHC</td>
+                <td>@item.TenTTHC</td>
+                <td>@item.CQTThucHien</td>
+                <td>@item.VanBanQuyDinh</td>
+                <td>@item.QuyetDinhCongBo</td>
+                <td>@item.MucDoDVCTT</td>
+                <td>@item.TichHopCongDVCQG</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Đây là thư viện jQuery -->
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btnShowTTHC').click(function () {
+                $('#tthcTable').toggle(); // Hiển thị/Ẩn bảng dữ liệu
+
+                if ($('#tthcTable').is(':visible')) {
+                    $('#btnShowTTHC').text('Ẩn thủ tục hành chính');
+                } else {
+                    $('#btnShowTTHC').text('Hiển thị thủ tục hành chính');
+                }
+            });
+        });
+    </script>
+}
